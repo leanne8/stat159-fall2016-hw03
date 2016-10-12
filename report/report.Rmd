@@ -1,0 +1,6 @@
+---
+title: "Homework3"
+author: "Leanne Lee"
+date: "October 12, 2016"
+output: pdf_document
+---

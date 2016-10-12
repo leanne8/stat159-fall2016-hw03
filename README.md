@@ -1,6 +1,8 @@
 ##Leanne Lee
-###Homework 3 
+### Stat 159 Homework 3 **Multiple Regression Analysis** 
 #### Baisc Homework structure
+
+
 ```
 stat159-fall2016-hw03/
     .gitignore
