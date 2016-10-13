@@ -19,7 +19,7 @@ session-info.txt: code/scripts/session-info-script.R
 	
 
 report: report/report.Rmd
-	pandoc -s report/report.Rmd -o report/report.pdf
+	Rscript -e 'library(rmarkdown); render("report/report.Rmd")'
 
 clean:
 	rm -f report/report.pdf 
