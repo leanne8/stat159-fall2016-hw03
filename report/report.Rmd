@@ -20,8 +20,83 @@ $$Sales = \beta_{0}+\beta_{1} * TV$$
 Simple Linear regression is useful when predicting a response based on one single predictor variable.
 For multiple linear regression:
 $$Sales = \beta_{0}+\beta_{1} * TV + \beta_{2}*Radio + \beta_{3}*Newspaper$$
-Multiple Linear regression is useful for Advertising data becasue it can determined the relationship between sales and the three types of advertising. We can compare which type of advertisment is more effective and has a stronger association with sales. 
+Multiple Linear regression is useful for Advertising data becasue it can determined the relationship between sales and the three types of advertising. We can compare which type of advertisement is more effective and has a stronger association with sales. 
 
 #Results
 
+```{r}
+library(xtable)
+library(png)
+library(grid)
+load('../data/regression.RData')
+load('../data/correlation-matrix.RData')
+ad <- read.csv("../data/Advertising.csv")
+source("../code/functions/regression-functions.R")
+```
+
+Let's compare the coefficients of each single linear regression.
+
+### TV Advertisement
+
+```{r,echo=FALSE,results='asis'}
+tvTable = xtable(TVregsum$coefficients, caption = "TV Advertisement Linear Regression")
+print(tvTable, comment=FALSE, type = "latex")
+```
+With $1000 increase in TV advertisement, there will be an increase in sales by 50 units. 
+
+### Radio Advertisement
+
+```{r,echo=FALSE,results='asis'}
+radTable = xtable(RadioRegsum$coefficients, caption = "Radio Advertisement Linear Regression")
+print(radTable, comment=FALSE, type = "latex")
+```
+With $1000 increase in Radio advertisement, there will be an increase in sales by 200 units. 
+
+### Newspaper Advertisement
+
+```{r,echo=FALSE,results='asis'}
+newsTable = xtable(NewsRegsum$coefficients, caption = "Newspaper Advertisement Linear Regression")
+print(newsTable, comment=FALSE, type = "latex")
+```
+With $1000 increase in Newspaper advertisement, there will be an increase in sales by 50 units. 
+
+### All Advertisements 
+
+With multiple linear regression, we can find out the changes in sales based of these three advertisements and check if there is a correlation between the advertisements. 
+The multiple linear regression with 3 predictors equations is the following: 
+$$Sales = \beta_{0}+\beta_{1} * TV + \beta_{2}*Radio + \beta_{3}*Newspaper$$
+
+```{r,echo=FALSE,results='asis'}
+allTable = xtable(regsum$coefficients, caption = "All Advertisements Linear Regression")
+print(allTable, comment=FALSE, type = "latex")
+```
+
+By using multiple linear regression, we can see how other predictors changed the sales. From Table 4, we can see that there will be approximately 50 units increase in sales with $1000 budget. Radio still have a better effect of increase in 190 units in sales. However, newspaper has a decrease in sales. Thus, we can concluded that radio advertisement is more effective, while newspaper plays a less importatnt role in terms of affect sales.
+
+### Correlation Matrix
+
+```{r,echo=FALSE,results='asis'}
+regstat <- c("RSS", "TSS", "R-square", "F-Statistics",  "Residual Standard Error")
+RSS <- ResSumSq(reg)
+TSS <- TotSumSq(reg)
+R_square <- Rsquare(reg)
+f_statistics <- f_stat(reg)
+RSE <- ResStdErr(reg)
+name <- c(RSS, TSS, R_square, f_statistics, RSE)
+corrTable = xtable(data.frame(regstat,name), caption = "Regression Statistics")
+print(corrTable, comment=FALSE, type = "latex")
+```
+
+From Table 5, we can first examined R squared, which is .90. This means the data is a good fit to the regression line. 
+
+###Correlation Matrix Graph
+
+```{r fig.width=4, fig.height=8,echo=FALSE}
+img <- readPNG("../images/scatterplot-matrix.png")
+grid.raster(img)
+```
+
+
 #Conclusions
+From the first three tables of single linear regression model, we find that TV and newspaper advertissment have approximately the same outcome for sales. The major difference is radio advertisement and the marketing team should consider spend more budget on it. 
+From the multiple linear regression model....

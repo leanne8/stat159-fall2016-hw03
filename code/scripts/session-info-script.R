@@ -23,5 +23,9 @@ library(methods)
 'methods'
 library(base)
 'base'
+library(png)
+'png'
+library(grid)
+'grid'
 sessionInfo()
 sink()
