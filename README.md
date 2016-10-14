@@ -2,6 +2,7 @@
 ### Stat 159 Homework 3 **Multiple Regression Analysis** 
 #### Baisc Homework structure
 
+The homework consists of regression functions, test cases, multiple linear regression and images. I am trying to reproduce the multipel linear regression using TV, Radio and Newspaper with a dependednt variable of sales. In the Chapter 3 of "An Introduction to Statistical Learning" (by James et al), I reusing the regression equations in the regression functions. By using _testthat_ function, I can check if I implelement the functions correctly. Then, I run a multiple linear regression on the three types of advertisement, and compare which advetisement has a more effective. While computing the multiple linear regression, I also produce historgrams and scatter plots on each independent variables, as well as the multiple regression plots and correlation matrix. 
 
 ```
 stat159-fall2016-hw03/
