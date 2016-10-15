@@ -71,7 +71,7 @@ allTable = xtable(regsum$coefficients, caption = "All Advertisements Linear Regr
 print(allTable, comment=FALSE, type = "latex")
 ```
 
-By using multiple linear regression, we can see how other predictors changed the sales. From Table 4, we can see that there will be approximately 50 units increase in sales with $1000 budget. Radio still have a better effect of increase in 190 units in sales. However, newspaper has a decrease in sales. Thus, we can concluded that radio advertisement is more effective, while newspaper plays a less importatnt role in terms of affect sales.
+By using multiple linear regression, we can see how other predictors changed the sales. From Table 4, we can see that there will be approximately 50 units increase in sales with $1000 budget. Radio still have a better effect of increase in 190 units in sales. However, newspaper has a decrease in sales. Thus, we can concluded that radio advertisement is more effective, while newspaper plays a less importatnt role in terms of affect sales. Both TV and radio have low p-values, which means there is a relationship between sales with TV and radio. Newspaper has 0.86 p-value, which means there is no relationship between Newspaper and Sales. 
 
 ### Correlation Matrix
 
@@ -87,7 +87,7 @@ corrTable = xtable(data.frame(regstat,name), caption = "Regression Statistics")
 print(corrTable, comment=FALSE, type = "latex")
 ```
 
-From Table 5, we can first examined R squared, which is .90. This means the data is a good fit to the regression line. 
+From Table 5, we can first examined R squared, which is .90. This means the data is a good fit to the regression line. The F-statistics is high, which mean at least one advertisement has a correlation with Sales. 
 
 ###Correlation Matrix Graph
 
@@ -96,7 +96,8 @@ img <- readPNG("../images/scatterplot-matrix.png")
 grid.raster(img)
 ```
 
+In the fourth column, it clearly show that TV and Radio have correlation with Sales. But it doesn't show a correlation between Newspaper and Sales. 
 
 #Conclusions
 From the first three tables of single linear regression model, we find that TV and newspaper advertissment have approximately the same outcome for sales. The major difference is radio advertisement and the marketing team should consider spend more budget on it. 
-From the multiple linear regression model....
+By examining the high f-statistics, we can tell that at least one of the predictors useful in predicting the response. The multiple regression model show us that TV and Radio are useful to explain the increase of sales. From the coefficients in the multiple linear regression model, we can see that Radio has the highest effect to increase sales. Newspaper has a negative coefficient and high p-value, which mean there is no relationship between newspaper and sales. The high R squares shows that the model is a good fit to the data; thus, the prediction will be quite accurate. 
